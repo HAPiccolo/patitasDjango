@@ -1,0 +1,97 @@
+
+
+/*section-1*/
+.section-1 {
+    background-image: url(../img/banner1.jpg);
+    background-size: 34em;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #2a8aad;
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-size: 2em;
+    font-style: normal;
+    text-align: center;
+}
+.section-1 h1{
+    
+    font-size: 3rem;
+}
+/*section-2*/
+.section-2 {
+    background-image: url(../img/banner1_1.jpg);
+    height: 15vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.section-2 h2 {
+    font-weight: 900;
+    font-size: 2em;
+    color: black;
+}
+
+/*about*/
+.about {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    margin: auto;
+    max-width: 90%;
+    text-align: justify;
+
+}
+.about h2{
+    font-family: "Cookie", cursive;
+    font-weight: 400;
+    font-size: 4em;
+    font-style: normal;
+    margin-bottom: 1px;
+}
+
+.about p {
+    padding: 2em;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-pie {
+    justify-content: flex-start;
+}
+
+.logo-pie img {
+    height: 150px;
+    width: 150px;
+}
+
+.footer {
+    color: #fff;
+    background-color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;  
+}
+
+.footer a {
+    text-decoration: none;
+    margin: 1em;
+}
+
+.footer .lineal {
+    
+    flex-direction: row;
+}
+.footer tr{
+    color: #fff;
+}
