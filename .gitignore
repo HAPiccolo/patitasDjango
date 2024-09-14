@@ -1,0 +1,8 @@
+.env
+env/
+.venv/
+.env/
+__pychache__/
+*.pyc
+.vscode/
+migrations/
