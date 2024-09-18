@@ -28,8 +28,10 @@ class Caracteristicas(models.Model):
         default="Canino",
     )
     nombre = models.CharField(max_length=50)
-    fecha_ingreso = models.DateField()
-    foto = models.ImageField(null=True, blank=True)
+    fecha_ingreso = models.DateField(auto_now_add=True)
+    foto = models.ImageField(
+        null=True, blank=True, upload_to="images/"
+    )  # guarda la imagen en media/images/
 
 
 class Empleado(models.Model):

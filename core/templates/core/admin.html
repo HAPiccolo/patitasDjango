@@ -1,6 +1,93 @@
 {% extends "core/base.html" %} {% load static %} {% block content %}
 
 <link rel="stylesheet" href="{% static 'css/administracion.css' %}" />
+<link rel="stylesheet" href="{% static 'css/modales.css' %}" />
 
-<h1>Panel de administracion</h1>
+
+<div class="container text-center mt-5">
+
+    {% if messages %}
+    <div class="alert alert-danger" role="alert">
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="container-sm mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'img/mascota_none.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Ingresar nueva mascota</h5>
+
+                            <a href="#" class="btn btn-primary nueva_mascota">Aceptar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'img/adopcion.jpg'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Nueva adopción</h5>
+                            <a href="#" class="btn btn-primary">Aceptar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card" style="width: 18rem;">
+                        <img src="{% static 'img/modmascota.png'%}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title">Modificar mascota</h5>
+
+                            <a href="#" class="btn btn-primary">Aceptar</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<section class="modal">
+    <div class="modal_container text-center">
+        <form method="post">
+            {% csrf_token %}
+            {{mascotasForm}}
+            <button type="submit" class="modal_close">Aceptar</button>
+        </form>
+    </div>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#mascotasForm').submit(function (event) {
+                event.preventDefault();
+                var formData = $(this).serialize();
+
+                $.ajax({
+                    type: 'POST',
+                    url:
+                        "{% url 'administracion' %}",
+                    data: formData,
+                    success: function (response) {
+                        // Manejar la respuesta exitosa
+                        console.log(response);
+                    },
+                    error: function (error) {
+                        // Manejar los errores
+                        console.error(error);
+                    }
+                });
+            });
+        });
+    </script>
+</section>
+
+
+
+<script src="{% static 'js/modales.js' %}"></script>
 {% endblock %}
