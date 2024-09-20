@@ -33,18 +33,13 @@ class Caracteristicas(models.Model):
         null=True, blank=True, upload_to="images/"
     )  # guarda la imagen en media/images/
 
-
-class Empleado(models.Model):
-    nombre = models.CharField(max_length=50)
-    apellido = models.CharField(max_length=50)
-    direccion = models.CharField(max_length=200)
-    telefono = models.CharField(max_length=20)
-    dni = models.CharField(max_length=10, primary_key=True, null=False)
+    # retorna el nombre de la mascota
+    def __str__(self) -> str:
+        return f"{self.nombre}"
 
 
 class Mascota(models.Model):
     adoptante = models.ForeignKey(Adoptante, on_delete=models.CASCADE)
-    empleado = models.ForeignKey(Empleado, on_delete=models.CASCADE)
     masco = models.ForeignKey(Caracteristicas, on_delete=models.CASCADE)
 
 
