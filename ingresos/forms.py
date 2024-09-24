@@ -24,6 +24,21 @@ class MascotasForm(forms.ModelForm):
             "especie": forms.Select(attrs={"class": "form-select mt-2"}),
         }
 
+    def clean(self):
+        cleaned_data = super().clean()
+        nombre = cleaned_data.get("nombre")
+
+        if nombre:
+            try:
+                mascota = Caracteristicas.objects.get(nombre=nombre)
+                cleaned_data.update(
+                    mascota.__dict__
+                )  # Update form data with fetched data
+            except Caracteristicas.DoesNotExist:
+                self.add_error("nombre", "La mascota no existe.")
+
+        return cleaned_data
+
 
 class FiltroMascotaFrom(forms.ModelForm):
     class Meta:

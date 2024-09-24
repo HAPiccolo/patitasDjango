@@ -14,7 +14,9 @@ def es_superuser(user):
 
 
 def home(request):
-    return render(request, "core/home.html")
+    mascotas = Caracteristicas.objects.all()
+
+    return render(request, "core/home.html", {"mascotas": mascotas})
 
 
 def login(request):
@@ -36,7 +38,6 @@ def administracion(request):
             messages.error(request, "Hubo un error en el formulario.")
     else:
         mascotaForm = MascotasForm()
-        filtro = FiltroMascotaFrom()
 
     context = {"mascotasForm": mascotaForm}
     return render(request, "core/admin.html", context)

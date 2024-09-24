@@ -1,45 +1,72 @@
-{% extends 'core/base.html' %}
-
-
-{% block content %}
-
+{% extends 'core/base.html' %} {% block content %} {% load static %}
 
 <section class="section-1">
   <h1>Refugio de animales</h1>
   <p>Un lugar de tranquilidad y mucho amor</p>
 </section>
 
-<section class="section-2">
-
-</section>
+<section class="section-2"></section>
 
 <section class="about" id="nosotros">
   <h2>Nosotros</h2>
 
-  <p>Nuestro refugio nació de la profunda convicción de que cada animal merece un hogar lleno de amor y respeto.
-    Impulsados por la necesidad de brindar una segunda oportunidad a aquellos que han sido abandonados o maltratados,
-    nos dedicamos a rescatar, cuidar y encontrar familias responsables para nuestros peludos amigos. Creemos en la
-    importancia de la tenencia responsable y trabajamos incansablemente para promover la adopción como la mejor opción
-    para formar una familia. Nuestra misión es construir un mundo donde todos los animales sean valorados y protegidos.
+  <p>
+    Nuestro refugio nació de la profunda convicción de que cada animal merece un
+    hogar lleno de amor y respeto. Impulsados por la necesidad de brindar una
+    segunda oportunidad a aquellos que han sido abandonados o maltratados, nos
+    dedicamos a rescatar, cuidar y encontrar familias responsables para nuestros
+    peludos amigos. Creemos en la importancia de la tenencia responsable y
+    trabajamos incansablemente para promover la adopción como la mejor opción
+    para formar una familia. Nuestra misión es construir un mundo donde todos
+    los animales sean valorados y protegidos.
   </p>
 </section>
-<section class="section-2">
-
-</section>
+<section class="section-2"></section>
 
 <section class="about" id="mascotas">
+  <div class="container-sm mt-5">
+    <div class="container">
+      <div class="row">
+        {% for mascota in mascotas %}
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            {% if mascota.foto %}
+            <img src="{{ mascota.foto }}" class="card-img-top" alt="..." />
 
+            {% else %}
+            <img
+              src="{% static 'img/mascota_none.png'%}"
+              class="card-img-top"
+              alt="..."
+            />
+            {% endif %}
+            <div class="card-body">
+              <h5 class="card-title">{{mascota.nombre}}</h5>
+              <h6><b>Edad</b>: {{mascota.edad}}</h6>
+              <h6><b>Especie</b>: {{mascota.especie}}</h6>
+              <h6><b>Raza</b>: {{mascota.raza}}</h6>
+              <h6><b>Sexo</b>: {{mascota.sexo}}</h6>
+              <h6><b>Discapacidad</b>: {{mascota.discapacidad}}</h6>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
 </section>
 
-
 <footer class="footer">
-
   <div class="linieal">
-    <a href="https://api.whatsapp.com/send/?phone=543794001122" target="_blank">Telefono de contacto</a> | <a
-      href="https://www.mercadopago.com.ar/" target="_blank">Donaciones</a> | <a
-      href="https://maps.app.goo.gl/kq8EohrW28mXZ9f96" target="_blank">Nuestro refugio</a>
+    <a href="https://api.whatsapp.com/send/?phone=543794001122" target="_blank"
+      >Telefono de contacto</a
+    >
+    | <a href="https://www.mercadopago.com.ar/" target="_blank">Donaciones</a> |
+    <a href="https://maps.app.goo.gl/kq8EohrW28mXZ9f96" target="_blank"
+      >Nuestro refugio</a
+    >
   </div>
-  &copy; Patitas 2024 <br>
+  &copy; Patitas 2024 <br />
   <p>Piccolo Horacio - Ranalli Martín</p>
 </footer>
 
