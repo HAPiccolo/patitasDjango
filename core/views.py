@@ -1,5 +1,5 @@
 from django.http import JsonResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login
@@ -26,6 +26,9 @@ def administracion(request):
         mascotaForm = MascotasForm(request.POST)
         if mascotaForm.is_valid():
             mascotaForm.save()
+            return redirect(
+                "administracion"
+            )  # Fix hasta solucionar la limpieza de campos
             messages.success(request, "Se ingresaron correctamente los datos.")
 
         else:
