@@ -3,7 +3,8 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login
-from ingresos.forms import MascotasForm
+from ingresos.forms import MascotasForm, FiltroMascotaFrom
+from .models import Caracteristicas
 # Create your views here.
 
 
@@ -35,6 +36,7 @@ def administracion(request):
             messages.error(request, "Hubo un error en el formulario.")
     else:
         mascotaForm = MascotasForm()
+        filtro = FiltroMascotaFrom()
 
     context = {"mascotasForm": mascotaForm}
     return render(request, "core/admin.html", context)

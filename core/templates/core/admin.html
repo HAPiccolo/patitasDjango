@@ -49,8 +49,7 @@
                         <img src="{% static 'img/modmascota.png'%}" class="card-img-top" alt="..." />
                         <div class="card-body">
                             <h5 class="card-title">Modificar mascota</h5>
-
-                            <a href="#" class="btn btn-primary">Aceptar</a>
+                            <a href="#" class="btn btn-primary modificar_mascota">Aceptar</a>
                         </div>
                     </div>
                 </div>
@@ -68,6 +67,13 @@
     </div>
 </section>
 
+
+<section class="mod_mascota modal">
+    <div class="modal_container text-center">
+        {% csrf_token %} {{filtro}}
+
+    </div>
+</section>
 
 
 

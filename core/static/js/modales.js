@@ -3,7 +3,8 @@ const modal = document.querySelector('.modal');
 const closeModal = document.querySelector('.modal_close');
 
 
-
+const modal_modificar_mascota = document.querySelector('.modificar_mascota');
+const mod_mascota = document.querySelector('.mod_mascota');
 
 openModal.addEventListener('click', () => {
 
@@ -21,7 +22,11 @@ closeModal.addEventListener('click', () => {
 document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') {
     modal.classList.remove('modal--show');
+    mod_mascota.classList.remove('modal--show');
   }
 });
 
-document.onload(document.getElementById('MascotasForm').reset());
+
+modal_modificar_mascota.addEventListener('click', () => {
+  mod_mascota.classList.add('modal--show');
+});

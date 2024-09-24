@@ -23,3 +23,15 @@ class MascotasForm(forms.ModelForm):
             "sexo": forms.Select(attrs={"class": "form-select mt-2"}),
             "especie": forms.Select(attrs={"class": "form-select mt-2"}),
         }
+
+
+class FiltroMascotaFrom(forms.ModelForm):
+    class Meta:
+        model = Caracteristicas
+        fields = [
+            "nombre",
+        ]
+
+        widgets = {
+            "nombre": forms.TextInput(attrs={"class": "form-control mt-2"}),
+        }

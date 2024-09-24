@@ -51,4 +51,4 @@ class Adopciones(models.Model):
     edad = models.CharField(max_length=2)
     dni = models.CharField(max_length=10, primary_key=True, null=False)
     mascota = models.ForeignKey(Caracteristicas, on_delete=models.CASCADE)
-    fecha_adopcion = models.DateField()
+    fecha_adopcion = models.DateField(auto_now_add=True)
