@@ -1,11 +1,11 @@
 from django import forms
 
-from core.models import Caracteristicas
+from core.models import Mascotas
 
 
 class MascotasForm(forms.ModelForm):
     class Meta:
-        model = Caracteristicas
+        model = Mascotas
         fields = [
             "nombre",
             "edad",
@@ -22,5 +22,4 @@ class MascotasForm(forms.ModelForm):
             "discapacidad": forms.Textarea(attrs={"class": "form-control mt-2"}),
             "sexo": forms.Select(attrs={"class": "form-select mt-2"}),
             "especie": forms.Select(attrs={"class": "form-select mt-2"}),
-            "foto": forms.FileInput(attrs={"enctype": "multipart/form-data"}),
         }

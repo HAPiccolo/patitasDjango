@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Caracteristicas, Adoptante, Adopciones
+from .models import Adoptante, Adopciones, Mascotas
 
 
-class CaracteristicasAdmin(admin.ModelAdmin):
+class MascotasAdmin(admin.ModelAdmin):
     list_display = (
         "edad",
         "discapacidad",
@@ -16,6 +16,6 @@ class CaracteristicasAdmin(admin.ModelAdmin):
 
 
 # Register your models here.
-admin.site.register(Caracteristicas, CaracteristicasAdmin)
+admin.site.register(Mascotas, MascotasAdmin)
 admin.site.register(Adoptante)
 admin.site.register(Adopciones)

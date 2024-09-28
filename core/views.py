@@ -1,9 +1,8 @@
 from django.shortcuts import redirect, render
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required, user_passes_test
-from django.contrib.auth import authenticate, login
+from django.contrib.auth.decorators import login_required
 from ingresos.forms import MascotasForm
-from .models import Caracteristicas
+from .models import Mascotas
 # Create your views here.
 
 
@@ -13,7 +12,7 @@ def es_superuser(user):
 
 
 def home(request):
-    mascotas = Caracteristicas.objects.all()
+    mascotas = Mascotas.objects.all()
 
     return render(request, "core/home.html", {"mascotas": mascotas})
 
