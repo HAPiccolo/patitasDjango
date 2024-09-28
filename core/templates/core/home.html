@@ -29,9 +29,9 @@
       <div class="row">
         {% for mascota in mascotas %}
         <div class="col">
-          <div class="card" style="width: 18rem">
+          <div class="card" style="width: 16rem">
             {% if mascota.foto %}
-            <img src="{{ mascota.foto }}" class="card-img-top" alt="..." />
+            <img src="{{ mascota.foto.url }}" class="card-img-top" alt="..." />
 
             {% else %}
             <img

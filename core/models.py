@@ -32,15 +32,11 @@ class Caracteristicas(models.Model):
     foto = models.ImageField(
         null=True, blank=True, upload_to="images/"
     )  # guarda la imagen en media/images/
+    estado = models.BooleanField(default=False)
 
     # retorna el nombre de la mascota
     def __str__(self) -> str:
         return f"{self.nombre}"
-
-
-class Mascota(models.Model):
-    adoptante = models.ForeignKey(Adoptante, on_delete=models.CASCADE)
-    masco = models.ForeignKey(Caracteristicas, on_delete=models.CASCADE)
 
 
 class Adopciones(models.Model):

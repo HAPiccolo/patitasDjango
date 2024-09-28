@@ -1,9 +1,8 @@
-from django.http import JsonResponse
 from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth import authenticate, login
-from ingresos.forms import MascotasForm, FiltroMascotaFrom
+from ingresos.forms import MascotasForm
 from .models import Caracteristicas
 # Create your views here.
 
@@ -36,6 +35,7 @@ def administracion(request):
 
         else:
             messages.error(request, "Hubo un error en el formulario.")
+            print(request)
     else:
         mascotaForm = MascotasForm()
 
