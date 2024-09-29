@@ -1,5 +1,14 @@
-{% extends "core/base.html" %}{% load static %}
+{% extends "core/base.html" %}{% load static %} {% block content %}
 
-<div class="container text-center">
+<div class="container text-center mt-2">
   <h1>Ingreso de nueva mascota</h1>
+  <hr></hr>
 </div>
+<div class="container-sm w-50">
+  <form action="" method="post" enctype="multipart/form-data">
+    {% csrf_token %} {{mascotasForm}}
+    <button type="submit" class="btn btn-success mt-4 mb-5">ACEPTAR</button>
+  </form>
+</div>
+
+{% endblock content %}

@@ -27,9 +27,9 @@ class Mascotas(models.Model):
     nombre = models.CharField(max_length=50)
     fecha_ingreso = models.DateField(auto_now_add=True)
     foto = models.ImageField(
-        null=True, blank=True, upload_to="images/"
+        null=True, blank=True, upload_to="images"
     )  # guarda la imagen en media/images/
-    estado = models.BooleanField(default=False)
+    estado = models.BooleanField(default=True)
 
     # retorna el nombre de la mascota
     def __str__(self) -> str:

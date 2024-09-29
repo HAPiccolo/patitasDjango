@@ -23,20 +23,4 @@ def login(request):
 
 @login_required()
 def administracion(request):
-    if request.method == "POST":
-        mascotaForm = MascotasForm(request.POST)
-        if mascotaForm.is_valid():
-            mascotaForm.save()
-            return redirect(
-                "administracion"
-            )  # Fix hasta solucionar la limpieza de campos
-            messages.success(request, "Se ingresaron correctamente los datos.")
-
-        else:
-            messages.error(request, "Hubo un error en el formulario.")
-            print(request)
-    else:
-        mascotaForm = MascotasForm()
-
-    context = {"mascotasForm": mascotaForm}
-    return render(request, "core/admin.html", context)
+    return render(request, "core/admin.html")

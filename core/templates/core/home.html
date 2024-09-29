@@ -31,7 +31,11 @@
         <div class="col">
           <div class="card" style="width: 16rem">
             {% if mascota.foto %}
-            <img src="{{ mascota.foto.url }}" class="card-img-top" alt="..." />
+            <img
+              src="{{mascota.foto.url}}"
+              class="card-img-top"
+              alt="{{ mascota.foto.url }}"
+            />
 
             {% else %}
             <img
