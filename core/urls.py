@@ -10,6 +10,7 @@ urlpatterns = [
     path("", home, name="home"),
     path("login/", include("login.urls")),
     path("ingresos/", include("ingresos.urls")),
+    path("modificaciones/", include("modificaciones.urls")),
     path("administracion/", administracion, name="administracion"),
 ]
 
