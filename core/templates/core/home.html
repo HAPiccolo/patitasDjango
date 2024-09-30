@@ -50,7 +50,9 @@
               <h6><b>Especie</b>: {{mascota.especie}}</h6>
               <h6><b>Raza</b>: {{mascota.raza}}</h6>
               <h6><b>Sexo</b>: {{mascota.sexo}}</h6>
+              {% if mascota.discapacidad %}
               <h6><b>Discapacidad</b>: {{mascota.discapacidad}}</h6>
+              {% endif %}
             </div>
           </div>
         </div>
