@@ -11,6 +11,7 @@ urlpatterns = [
     path("login/", include("login.urls")),
     path("ingresos/", include("ingresos.urls")),
     path("modificaciones/", include("modificaciones.urls")),
+    path("adopciones/", include("adopciones.urls")),
     path("administracion/", administracion, name="administracion"),
 ]
 

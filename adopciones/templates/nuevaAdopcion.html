@@ -1,0 +1,21 @@
+{% extends "core/base.html" %}{% load static %}{% block content %}
+<div class="container-sm mt-5 text-center">
+  <h1>Registrar Nueva Adopción</h1>
+</div>
+<div class="container-sm w-50 mt-5 mb-5 bordered border border-primary">
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 mb-2">
+    <a
+      href="{% url 'agregarAdoptante' %}"
+      class="btn btn-success mt-3 mb-3 md-end"
+      >Agregar Adoptante</a
+    >
+  </div>
+  <form method="post">{% csrf_token %}{{ formAdopcion }}</form>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 mb-2">
+    <a href="{% url 'administracion' %}" class="btn btn-danger mt-3 mb-3 md-end"
+      >Cancelar</a
+    >
+    <a href="#" class="btn btn-success mt-3 mb-3 md-end">aceptar</a>
+  </div>
+</div>
+{% endblock content %}

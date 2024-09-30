@@ -9,6 +9,9 @@ class Adoptante(models.Model):
     edad = models.CharField(max_length=2)
     dni = models.CharField(max_length=10, primary_key=True, null=False)
 
+    def __str__(self) -> str:
+        return f"{self.dni} - {self.nombre} {self.apellido} "
+
 
 class Mascotas(models.Model):
     edad = models.CharField(max_length=2)

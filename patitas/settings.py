@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "login",
     "ingresos",
     "modificaciones",
+    "adopciones",
     "debug_toolbar",
 ]
 
