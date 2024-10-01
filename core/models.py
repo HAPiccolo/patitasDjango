@@ -43,3 +43,6 @@ class Adopciones(models.Model):
     adoptante = models.ForeignKey(Adoptante, on_delete=models.CASCADE)
     mascota = models.ForeignKey(Mascotas, on_delete=models.CASCADE)
     fecha_adopcion = models.DateField(auto_now_add=True)
+
+    def __str__(self) -> str:
+        return f"{self.adoptante} | {self.mascota}"
