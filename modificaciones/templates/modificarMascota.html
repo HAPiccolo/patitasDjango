@@ -1,15 +1,20 @@
 {% extends "core/base.html" %}{% load static %} {% block content %}
-
-<div class="container text-center mt-5">
-  <h1>Modiciación de Datos</h1>
+<div class="container mt-5">
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+      <a href="{% url 'editarMascota' %}" class="btn btn-primary"><<</a>
+    </div>
+    <div class="col-sm-8">
+      <h1>Modificacion de Datos</h1>
+    </div>
+  </div>
 </div>
+<hr />
+
 <div class="container-sm w-50 mt-5">
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}{{ formulario }}
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4 mb-4">
-      <a href="{% url 'editarMascota' %}" class="btn btn btn-danger"
-        >Cancelar</a
-      >
       <button type="submit" class="btn btn btn-success">Aceptar</button>
     </div>
   </form>

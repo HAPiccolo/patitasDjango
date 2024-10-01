@@ -1,17 +1,19 @@
 {% extends "core/base.html" %}{% load static %}{% block content %}
-<div class="container-sm mt-5 text-center">
-  <h1>Agregar nuevo adoptante</h1>
+<div class="container mt-5">
+  <div class="row align-items-center">
+    <div class="col-sm-4">
+      <a href="{% url 'nuevaAdopcion' %}" class="btn btn-primary"><<</a>
+    </div>
+    <div class="col-sm-8">
+      <h1>Registra Nuevo Adoptante</h1>
+    </div>
+  </div>
 </div>
 <hr />
 <div class="container w-50 mt-5 mb-2">
   <form method="post">
     {% csrf_token %} {{ formAdoptante }}
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 mb-2">
-      <a
-        href="{% url 'nuevaAdopcion' %}"
-        class="btn btn-danger mt-3 mb-3 md-end"
-        >Cancelar</a
-      >
       <button type="submit" class="btn btn-success mt-3 mb-3 md-end">
         aceptar
       </button>
