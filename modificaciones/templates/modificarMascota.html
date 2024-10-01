@@ -7,10 +7,10 @@
   <form method="post" enctype="multipart/form-data">
     {% csrf_token %}{{ formulario }}
     <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4 mb-4">
-      <a href="{% url 'editarMascota' %}" class="btn btn-lg btn-danger"
+      <a href="{% url 'editarMascota' %}" class="btn btn btn-danger"
         >Cancelar</a
       >
-      <button type="submit" class="btn btn-lg btn-success">Aceptar</button>
+      <button type="submit" class="btn btn btn-success">Aceptar</button>
     </div>
   </form>
 </div>
