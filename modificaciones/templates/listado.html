@@ -1,4 +1,6 @@
-{% extends "core/base.html" %}{% load static %} {% block content %}
+{% extends "core/base.html" %}
+{% load static %}
+{% block content %}
 
 <div class="container mt-5">
   <div class="row align-items-center">
@@ -11,17 +13,30 @@
   </div>
 </div>
 <hr />
+
+<!-- Filtro de búsqueda con JS -->
 <div class="container mt-5">
   <div class="input-group mb-4">
     <span class="input-group-text">Buscar por nombre</span>
     <input
       type="text"
-      aria-label="First name"
+      id="filtroNombre"
+      aria-label="Buscar por nombre"
       class="form-control me-3"
-      id="input_busqueda"
+      placeholder="Escribe el nombre"
     />
-    <a class="btn btn-sm btn-success" id="btn_filtrar" href="#">Buscar</a>
+
+    <span class="input-group-text">Buscar por especie</span>
+    <input
+      type="text"
+      id="filtroEspecie"
+      aria-label="Buscar por especie"
+      class="form-control me-3"
+      placeholder="Escribe la especie"
+    />
   </div>
+
+  <!-- Tabla de listado -->
   <table class="table table-light table-hover table-bordered border-primary">
     <thead>
       <tr>
@@ -31,15 +46,15 @@
         <th scope="col">Raza</th>
         <th scope="col">Edad</th>
         <th scope="col">Estado</th>
-        <th scope="col">Accion</th>
+        <th scope="col">Acción</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="tablaMascotas">
       {% for mascota in mascotas %}
       <tr>
         <th scope="row">{{ mascota.id }}</th>
-        <td>{{ mascota.nombre }}</td>
-        <td>{{ mascota.especie }}</td>
+        <td class="nombre">{{ mascota.nombre }}</td>
+        <td class="especie">{{ mascota.especie }}</td>
         <td>{{ mascota.raza }}</td>
         <td>{{ mascota.edad }}</td>
         {% if mascota.estado %}
@@ -51,7 +66,7 @@
           <div class="d-grid gap-2 col-6 mx-auto">
             <a
               class="btn btn-sm btn-warning"
-              href="modificarMascota/{{ mascota.id }}"
+              href="{% url 'modificarMascota' mascota.id %}"
               >Editar</a
             >
           </div>
@@ -61,5 +76,41 @@
     </tbody>
   </table>
 </div>
+
+<!-- Agregar el script de filtrado -->
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    // Obtener los elementos del filtro
+    const inputNombre = document.getElementById('filtroNombre');
+    const inputEspecie = document.getElementById('filtroEspecie');
+    const tablaMascotas = document.getElementById('tablaMascotas');
+    const filas = tablaMascotas.getElementsByTagName('tr');
+
+    // Función para filtrar por nombre y especie
+    function filtrarMascotas() {
+      const filtroNombre = inputNombre.value.toLowerCase();
+      const filtroEspecie = inputEspecie.value.toLowerCase();
+
+      for (let i = 0; i < filas.length; i++) {
+        const nombreMascota = filas[i].getElementsByClassName('nombre')[0].textContent.toLowerCase();
+        const especieMascota = filas[i].getElementsByClassName('especie')[0].textContent.toLowerCase();
+
+        // Verificar si la fila coincide con los filtros
+        if (
+          nombreMascota.includes(filtroNombre) &&
+          especieMascota.includes(filtroEspecie)
+        ) {
+          filas[i].style.display = ''; // Mostrar fila si coincide
+        } else {
+          filas[i].style.display = 'none'; // Ocultar fila si no coincide
+        }
+      }
+    }
+
+    // Agregar eventos para que se filtre cuando se escriba en los inputs
+    inputNombre.addEventListener('keyup', filtrarMascotas);
+    inputEspecie.addEventListener('keyup', filtrarMascotas);
+  });
+</script>
 
 {% endblock content %}
