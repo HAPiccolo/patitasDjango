@@ -6,8 +6,13 @@
 <div class="container mt-5">
   <div class="input-group mb-4">
     <span class="input-group-text">Buscar por nombre</span>
-    <input type="text" aria-label="First name" class="form-control" />
-    <a class="btn btn-sm btn-success" href="#">Editar</a>
+    <input
+      type="text"
+      aria-label="First name"
+      class="form-control me-3"
+      id="input_busqueda"
+    />
+    <a class="btn btn-sm btn-success" id="btn_filtrar" href="#">Buscar</a>
   </div>
   <table class="table table-light table-hover table-bordered border-primary">
     <thead>
@@ -48,4 +53,5 @@
     </tbody>
   </table>
 </div>
+
 {% endblock content %}
