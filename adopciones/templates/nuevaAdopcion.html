@@ -18,9 +18,13 @@
       >Agregar Adoptante</a
     >
   </div>
-  <form method="post">{% csrf_token %}{{ formAdopcion }}</form>
-  <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 mb-2">
-    <a href="#" class="btn btn-success mt-3 mb-3 md-end">aceptar</a>
-  </div>
+  <form method="post">
+    {% csrf_token %}{{ formAdopcion }}
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-2 mb-2">
+      <button type="submit" class="btn btn-success mt-3 mb-3 md-end">
+        Aceptar
+      </button>
+    </div>
+  </form>
 </div>
 {% endblock content %}

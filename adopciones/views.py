@@ -7,8 +7,12 @@ def nuevaAdopcion(request):
     if request.method == "POST":
         formAdopcion = nuevaAdopcionForm(request.POST)
         if formAdopcion.is_valid():
-            formAdopcion.save()
-            return redirect("")
+            adopcion = formAdopcion.save(commit=False)  # No guarda los datos aun
+            mascota = adopcion.mascota
+            mascota.estado = False
+            mascota.save()
+            adopcion.save()
+            return redirect("administracion")
     else:
         formAdopcion = nuevaAdopcionForm()
 

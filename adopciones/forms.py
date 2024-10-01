@@ -1,5 +1,5 @@
 from django import forms
-from core.models import Adopciones, Adoptante
+from core.models import Adopciones, Adoptante, Mascotas
 
 
 class nuevaAdopcionForm(forms.ModelForm):
@@ -11,6 +11,11 @@ class nuevaAdopcionForm(forms.ModelForm):
             "adoptante": forms.Select(attrs={"class": "form-select mt-2"}),
             "mascota": forms.Select(attrs={"class": "form-select mt-2"}),
         }
+
+    # Filtra las mascotas, mostrano en el formulario solamente las que tienen estado True
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.fields["mascota"].queryset = Mascotas.objects.filter(estado=True)
 
 
 class adoptanteForm(forms.ModelForm):
