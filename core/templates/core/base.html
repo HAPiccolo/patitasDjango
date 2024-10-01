@@ -28,12 +28,18 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
+          {% if user.is_authenticated %}
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{% url 'administracion' %}">Administracion</a>
+          </li>
+          {% else %}
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="#nosotros">Nosotos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#mascotas">Mascotas</a>
           </li>
+          {% endif %}
           <li class="nav-item">
             
             {% if user.is_authenticated %}
