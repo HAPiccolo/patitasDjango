@@ -2,79 +2,80 @@
 
 <link rel="stylesheet" href="{% static 'css/administracion.css' %}" />
 
-
 <div class="container text-center mt-5">
-    {% if messages.is_error %}
-    <div class="alert alert-danger alert-dismissible" role="alert">
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
-    </div>
-    {% endif %}
+  {% if messages.is_error %}
+  <div class="alert alert-danger alert-dismissible" role="alert">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+  </div>
+  {% endif %} {% if messages %}
+  <div class="alert alert-success alert-dismissible" role="alert">
+    {% for message in messages %}
+    <p>{{ message }}</p>
+    {% endfor %}
+  </div>
+  {% endif %}
 
-    {% if messages %}
-    <div class="alert alert-success alert-dismissible" role="alert">
-        {% for message in messages %}
-        <p>{{ message }}</p>
-        {% endfor %}
-    </div>
-    {% endif %}
-
-
-    <div class="container-sm mt-5">
-        <div class="container">
-            <div class="row">
-                <div class="col">
-                    <div class="card" style="width: 18rem">
-                        <img src="{% static 'img/mascota_none.png'%}" class="card-img-top" alt="..." />
-                        <div class="card-body">
-
-                            <a href="{% url 'ingresoMascota' %}" class="btn btn-primary nueva_mascota">Ingresar Mascota</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem">
-                        <img src="{% static 'img/adopcion.jpg'%}" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            
-                            <a href="{% url 'nuevaAdopcion' %}" class="btn btn-primary">Adoptar Mascota</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col">
-                    <div class="card" style="width: 18rem">
-                        <img src="{% static 'img/modmascota.png'%}" class="card-img-top" alt="..." />
-                        <div class="card-body">
-                            
-                            <a href="{% url 'editarMascota' %}" class="btn btn-primary modificar_mascota">Editar Mascota</a>
-                        </div>
-                    </div>
-                </div>
+  <div class="container-sm mt-5">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img src="{% static 'img/mascota_none.png'%}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <a href="{% url 'ingresoMascota' %}" class="btn btn-primary nueva_mascota">Ingresar Mascota</a>
             </div>
+          </div>
         </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img src="{% static 'img/adopcion.jpg'%}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <a href="{% url 'nuevaAdopcion' %}" class="btn btn-primary">Adoptar Mascota</a>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" style="width: 18rem">
+            <img src="{% static 'img/modmascota.png'%}" class="card-img-top" alt="..." />
+            <div class="card-body">
+              <a href="{% url 'editarMascota' %}" class="btn btn-primary modificar_mascota">Editar Mascota</a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
+<!-- Estadisticas -->
 
-<section class="modal">
-    <div class="modal_container text-center">
-        <form method="post" id="mascotasForm">
-            {% csrf_token %} {{mascotasForm}}
-            <button type="submit" class="modal_close">Aceptar</button>
-        </form>
-    </div>
-</section>
-
-
-<section class="mod_mascota modal">
-    <div class="modal_container text-center">
-
-    </div>
-</section>
-
-
-
-
-
+<div class="container text-center mt-5 mb-5 w-50">
+  <table class="table  table-bordered">
+    <tr>
+      <th>Caninos</th>
+      <th>Felinos</th>
+    </tr>
+    <tr>
+      <td>
+        Machos: {{canMacho}}
+      </td>
+      <td>
+        Machos: {{felMacho}}
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Hembras: {{canHembra}}
+      </td>
+      <td>
+        Hembras: {{felHembra}}
+      </td>
+    </tr>
+    <tr>
+      <td class="bg-info">Total mascotas:</td>
+      <td class="bg-info">{{cantMascotas}}</td>
+    </tr>
+  </table>
+</div>
 {% endblock %}
-</section>
