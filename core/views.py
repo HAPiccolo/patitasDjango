@@ -2,7 +2,8 @@ from django.shortcuts import redirect, render
 from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 from ingresos.forms import MascotasForm
-from .models import Mascotas
+from .models import Mascotas, Adoptante
+
 # Create your views here.
 
 
@@ -31,8 +32,11 @@ def administracion(request):
     felinos = Mascotas.objects.filter(especie="felino").count()
     felMacho = Mascotas.objects.filter(especie="felino", sexo="macho").count()
     felHembra = Mascotas.objects.filter(especie="felino", sexo="hembra").count()
-
+    cantAdoptantes = Adoptante.objects.all().count()
+    
+    
     context = {
+        "cantAdoptantes": cantAdoptantes,
         "cantMascotas": cantMascotas,
         "caninos": caninos,
         "felinos": felinos,
