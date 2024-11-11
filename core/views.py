@@ -24,6 +24,7 @@ def login(request):
 
 @login_required()
 def administracion(request):
+    
     cantMascotas = Mascotas.objects.all().count()
     caninos = Mascotas.objects.filter(especie="canino").count()
     canMacho = Mascotas.objects.filter(especie="canino", sexo="macho").count()
@@ -33,7 +34,7 @@ def administracion(request):
     felMacho = Mascotas.objects.filter(especie="felino", sexo="macho").count()
     felHembra = Mascotas.objects.filter(especie="felino", sexo="hembra").count()
     cantAdoptantes = Adoptante.objects.all().count()
-    
+    adoptados = Mascotas.objects.filter(estado="False").count()
     
     context = {
         "cantAdoptantes": cantAdoptantes,
@@ -44,6 +45,7 @@ def administracion(request):
         "canHembra": canHembra,
         "felMacho": felMacho,
         "felHembra": felHembra,
+        "adoptados" : adoptados,
     }
 
     return render(request, "core/admin.html", context)

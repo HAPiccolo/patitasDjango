@@ -22,25 +22,47 @@
       <div class="row">
         <div class="col">
           <div class="card" style="width: 18rem">
-            <img src="{% static 'img/mascota_none.png'%}" class="card-img-top" alt="..." />
+            <img
+              src="{% static 'img/mascota_none.png'%}"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
-              <a href="{% url 'ingresoMascota' %}" class="btn btn-primary nueva_mascota">Ingresar Mascota</a>
+              <a
+                href="{% url 'ingresoMascota' %}"
+                class="btn btn-primary nueva_mascota"
+                >Ingresar Mascota</a
+              >
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card" style="width: 18rem">
-            <img src="{% static 'img/adopcion.jpg'%}" class="card-img-top" alt="..." />
+            <img
+              src="{% static 'img/adopcion.jpg'%}"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
-              <a href="{% url 'nuevaAdopcion' %}" class="btn btn-primary">Adoptar Mascota</a>
+              <a href="{% url 'nuevaAdopcion' %}" class="btn btn-primary"
+                >Adoptar Mascota</a
+              >
             </div>
           </div>
         </div>
         <div class="col">
           <div class="card" style="width: 18rem">
-            <img src="{% static 'img/modmascota.png'%}" class="card-img-top" alt="..." />
+            <img
+              src="{% static 'img/modmascota.png'%}"
+              class="card-img-top"
+              alt="..."
+            />
             <div class="card-body">
-              <a href="{% url 'editarMascota' %}" class="btn btn-primary modificar_mascota">Editar Mascota</a>
+              <a
+                href="{% url 'editarMascota' %}"
+                class="btn btn-primary modificar_mascota"
+                >Editar Mascota</a
+              >
             </div>
           </div>
         </div>
@@ -51,35 +73,26 @@
 <!-- Estadisticas -->
 
 <div class="container text-center mt-5 mb-5 w-50">
-  <table class="table  table-bordered">
+  <table class="table table-bordered">
     <tr>
       <th>Caninos</th>
       <th>Felinos</th>
       <th>Adoptantes</th>
     </tr>
     <tr>
-      <td>
-        Machos: {{canMacho}}
-      </td>
-      <td>
-        Machos: {{felMacho}}
-      </td>
-      <td>
-        Adoptantes: {{cantAdoptantes}}
-      </td>
+      <td>Machos: {{canMacho}}</td>
+      <td>Machos: {{felMacho}}</td>
+      <td>Adoptantes: {{cantAdoptantes}}</td>
     </tr>
     <tr>
-      <td>
-        Hembras: {{canHembra}}
-      </td>
-      <td>
-        Hembras: {{felHembra}}
-      </td>
+      <td>Hembras: {{canHembra}}</td>
+      <td>Hembras: {{felHembra}}</td>
+      <td></td>
     </tr>
-    
     <tr>
-      <td class="bg-info">Total mascotas:</td>
-      <td class="bg-info">{{cantMascotas}}</td>
+      <td class="bg-info">Mascotas Registradas: {{cantMascotas}}</td>
+      <td class="bg-info">Total de adoptados: {{adoptados}}</td>
+      <td></td>
     </tr>
   </table>
 </div>
