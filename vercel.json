@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "patitas/wsgi.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "patitas/wsgi.py"
+    }
+  ]
+}
